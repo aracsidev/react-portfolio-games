@@ -1,8 +1,6 @@
 import '../css/lightsout.css';
 
 import LevelsBar from '../components/LevelsBar';
-
-import data from '../assets/data/lights-out-levels.json';
 import LightsOutSolutions from '../components/LightsOutSolutions';
 
 import { useState } from 'react';
@@ -10,8 +8,17 @@ import { useTransition } from 'react-spring';
 
 const LightsOutPage = () => {
 
-    const lvlNum = 1;
+    const [lvlNum, setLvlNum] = useState(1);
     const height = 330;
+
+    // This is fixed, I only wanted 3 levels with different sizes.
+    // If you want to generate more levels just make sure the number
+    // you pass is a square becouse the function and the grid generation
+    // both use Math.sqrt().
+    const lvl1 = generateLevel(9);
+    const lvl2 = generateLevel(25);
+    const lvl3 = generateLevel(49);
+
     const [solution, setSolution] = useState(0);
     const transitions = useTransition((solution !== 0), {
         from: {height: 0, opacity: 0},
@@ -23,6 +30,19 @@ const LightsOutPage = () => {
             friction: 0
         }
     })
+
+    // lvlSize MUST be a square!
+    function generateLevel(lvlSize) {
+        // Generation | example node: [[x, y], v]
+        // Value is randomly generated
+        const lvl = [];
+        for (var i = 0; i < Math.sqrt(lvlSize); i++) {
+            for (var h = 0; h < Math.sqrt(lvlSize); h++) {
+                lvl.push([[i, h], (Math.random() > 0.5) ? 1 : 0]);
+            }
+        }
+        return lvl;
+    }
 
     function lightNeighbours(coords, size) {
         // Needs to flip nodes with coordinates of [+0,+1] [+0,-1] [+1,+0] [-1,+0]
@@ -61,11 +81,11 @@ const LightsOutPage = () => {
             <div className='lo-content'>
                 <div className='lo-game'>
                     {
-                        data[`level_${lvlNum}`].map((nodeData) => {
+                        lvl2.map((nodeData) => {
 
                             // Make sure to provide a list of nodes that is a square number!
                             // The game therefore cannot be play in a rectangle becouse of this!
-                            const gridSize = Math.sqrt(data[`level_${lvlNum}`].length);
+                            const gridSize = Math.sqrt(lvl2.length);
 
                             return <div key={nodeData[0]}
                                 className={`lo-game-node-lvl${lvlNum} ${(nodeData[1] === 1) ? 'active' : ''}`}
@@ -77,7 +97,7 @@ const LightsOutPage = () => {
                         })
                     }
                     {
-                        transitions((styles, item) => item && <LightsOutSolutions solution={solution} height={330} styles={styles} /> )
+                        transitions((styles, item) => item && <LightsOutSolutions solution={solution} styles={styles} /> )
                     }
                 </div>
                 <div className='lo-description'>
