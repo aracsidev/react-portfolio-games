@@ -6,11 +6,23 @@ import data from '../assets/data/lights-out-levels.json';
 import LightsOutSolutions from '../components/LightsOutSolutions';
 
 import { useState } from 'react';
+import { useTransition } from 'react-spring';
 
 const LightsOutPage = () => {
 
-    const lvlNum = 1
+    const lvlNum = 1;
+    const height = 330;
     const [solution, setSolution] = useState(0);
+    const transitions = useTransition((solution !== 0), {
+        from: {height: 0, opacity: 0},
+        enter: {height: height, opacity: 1},
+        leave: {height: 0, opacity: 0},
+        reverse: true,
+        config: {
+            duration: 200,
+            friction: 0
+        }
+    })
 
     function lightNeighbours(coords, size) {
         // Needs to flip nodes with coordinates of [+0,+1] [+0,-1] [+1,+0] [-1,+0]
@@ -64,7 +76,9 @@ const LightsOutPage = () => {
                                 }}></div>
                         })
                     }
-                    <LightsOutSolutions solution={solution} />
+                    {
+                        transitions((styles, item) => item && <LightsOutSolutions solution={solution} height={330} styles={styles} /> )
+                    }
                 </div>
                 <div className='lo-description'>
                     <p className='f14'>GAME SHOWCASE</p>
