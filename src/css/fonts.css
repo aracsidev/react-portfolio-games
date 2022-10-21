@@ -1,0 +1,106 @@
+/* Poppins */
+@font-face {
+    font-family: 'Poppins Thin';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Thin.ttf);
+    font-weight: 100;
+}
+  
+@font-face {
+    font-family: 'Poppins ExtraLight';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-ExtraLight.ttf);
+    font-weight: 200;
+}
+  
+@font-face {
+    font-family: 'Poppins Light';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Light.ttf);
+    font-weight: 300;
+}
+  
+@font-face {
+    font-family: 'Poppins Regular';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Regular.ttf);
+    font-weight: 400;
+}
+  
+@font-face {
+    font-family: 'Poppins Medium';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Medium.ttf);
+    font-weight: 600;
+}
+  
+@font-face {
+    font-family: 'Poppins SemiBold';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-SemiBold.ttf);
+    font-weight: 600;
+}
+  
+@font-face {
+    font-family: 'Poppins Bold';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Bold.ttf);
+    font-weight: 700;
+}
+  
+@font-face {
+    font-family: 'Poppins Black';
+    font-style: normal;
+    src: url(../assets/fonts/Poppins-Black.ttf);
+    font-weight: 800;
+}
+
+/* Azeret */
+@font-face {
+    font-family: 'Josefin Thin';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-Thin.ttf);
+    font-weight: 100;
+}
+  
+@font-face {
+    font-family: 'Josefin ExtraLight';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-ExtraLight.ttf);
+    font-weight: 200;
+}
+  
+@font-face {
+    font-family: 'Josefin Light';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-Light.ttf);
+    font-weight: 300;
+}
+  
+@font-face {
+    font-family: 'Josefin Regular';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-Regular.ttf);
+    font-weight: 400;
+}
+  
+@font-face {
+    font-family: 'Josefin Medium';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-Medium.ttf);
+    font-weight: 600;
+}
+  
+@font-face {
+    font-family: 'Josefin SemiBold';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-SemiBold.ttf);
+    font-weight: 600;
+}
+  
+@font-face {
+    font-family: 'Azeret Bold';
+    font-style: normal;
+    src: url(../assets/fonts/JosefinSans-Bold.ttf);
+    font-weight: 700;
+}

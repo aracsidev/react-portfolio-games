@@ -1,0 +1,51 @@
+* {
+    /* Style settings */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    --priText: #ffffff;
+    --secText: #808080;
+    --priBg: #23144f;
+    --secBg: #e5645e;
+    --terBg: #170d35;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--priBg);
+}
+
+.f14 {
+    font-family: 'Poppins Light';
+    font-size: 14px;
+    color: var(--priText);
+}
+
+.f24 {
+    font-family: 'Josefin Medium';
+    font-size: 20px;
+    color: var(--priText);
+    line-height: 125%;
+}
+
+.f32 {
+    font-family: 'Josefin Medium';
+    font-size: 32px;
+    color: var(--priText);
+    line-height: 125%;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}

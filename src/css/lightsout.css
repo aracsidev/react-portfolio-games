@@ -1,0 +1,80 @@
+.lightsout {
+    width: 700px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lo-content {
+    width: 700px;
+    display: flex;
+}
+
+.lo-game {
+    width: 330px;
+    height: 330px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+.lo-game-node-lvl1 {
+    width: calc(20% - 16px);
+    height: calc(20% - 16px);
+    background-color: var(--terBg);
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.lo-game .lo-game-node-lvl1:nth-child(1),
+.lo-game .lo-game-node-lvl1:nth-child(6),
+.lo-game .lo-game-node-lvl1:nth-child(11),
+.lo-game .lo-game-node-lvl1:nth-child(16),
+.lo-game .lo-game-node-lvl1:nth-child(21) {
+    margin-left: 0;
+}
+
+.lo-game-node-lvl1.active {
+    background-color: var(--secBg);
+}
+
+.lo-description {
+    width: 330px;
+    margin-left: 40px;
+}
+
+.lo-description .f14:nth-child(1) {
+    color: var(--secBg);
+    font-family: 'Josefin Medium';
+}
+
+.lo-description-container .f14 {
+    color: var(--priText) !important;
+}
+
+.lo-description .f32 {
+    margin-bottom: 30px;
+}
+
+.lo-description-container {
+    margin-bottom: 20px;
+}
+
+.lo-description-links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lo-description-links p {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.lo-description-links p:hover {
+    color: var(--secBg);
+}

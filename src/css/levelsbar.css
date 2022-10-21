@@ -1,0 +1,35 @@
+.levelsbar {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.lb-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lb-bar {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: var(--terBg);
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.lb-bar::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: calc(100% / 5);
+    content: '';
+    background-color: var(--secBg);
+    border-radius: 5px;
+}
