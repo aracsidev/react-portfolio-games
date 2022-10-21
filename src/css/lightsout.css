@@ -22,6 +22,14 @@
 }
 
 .lo-game-node-lvl1 {
+    width: calc(33% - 16px);
+    height: calc(33% - 16px);
+    background-color: var(--terBg);
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.lo-game-node-lvl2 {
     width: calc(20% - 16px);
     height: calc(20% - 16px);
     background-color: var(--terBg);
@@ -29,12 +37,12 @@
     cursor: pointer;
 }
 
-.lo-game .lo-game-node-lvl1:nth-child(1),
-.lo-game .lo-game-node-lvl1:nth-child(6),
-.lo-game .lo-game-node-lvl1:nth-child(11),
-.lo-game .lo-game-node-lvl1:nth-child(16),
-.lo-game .lo-game-node-lvl1:nth-child(21) {
-    margin-left: 0;
+.lo-game-node-lvl3 {
+    width: calc(20% - 16px);
+    height: calc(20% - 16px);
+    background-color: var(--terBg);
+    border-radius: 11px;
+    cursor: pointer;
 }
 
 .lo-game-node-lvl1.active {

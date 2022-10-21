@@ -77,16 +77,12 @@ const LightsOutPage = () => {
 
     return (
         <div className="lightsout">
-            <LevelsBar title='Lights Out'/>
+            <LevelsBar title='Lights Out' lvlNum={3} currentLvl={lvlNum} />
             <div className='lo-content'>
                 <div className='lo-game'>
                     {
-                        lvl2.map((nodeData) => {
-
-                            // Make sure to provide a list of nodes that is a square number!
-                            // The game therefore cannot be play in a rectangle becouse of this!
-                            const gridSize = Math.sqrt(lvl2.length);
-
+                        lvl1.map((nodeData) => {
+                            const gridSize = Math.sqrt(lvl1.length);
                             return <div key={nodeData[0]}
                                 className={`lo-game-node-lvl${lvlNum} ${(nodeData[1] === 1) ? 'active' : ''}`}
                                 id={`${nodeData[0]}`}
