@@ -1,25 +1,29 @@
 import '../css/lightsout.css';
+import reloadIcon from '../assets/icons/sync.svg';
 
 import LevelsBar from '../components/LevelsBar';
 import LightsOutSolutions from '../components/LightsOutSolutions';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTransition } from 'react-spring';
 
 const LightsOutPage = () => {
 
-    const [lvlNum, setLvlNum] = useState(1);
+    const [solution, setSolution] = useState(0);
+    const [lvlNum, setLvlNum] = useState(0);
+    const [reload, setReload] = useState(false);
     const height = 330;
 
     // This is fixed, I only wanted 3 levels with different sizes.
     // If you want to generate more levels just make sure the number
     // you pass is a square becouse the function and the grid generation
     // both use Math.sqrt().
-    const lvl1 = generateLevel(9);
-    const lvl2 = generateLevel(25);
-    const lvl3 = generateLevel(49);
+    const lvl = [
+        useMemo(() => generateLevel(9), [reload]),
+        useMemo(() => generateLevel(25), [reload]),
+        useMemo(() => generateLevel(49), [reload])
+    ]
 
-    const [solution, setSolution] = useState(0);
     const transitions = useTransition((solution !== 0), {
         from: {height: 0, opacity: 0},
         enter: {height: height, opacity: 1},
@@ -79,10 +83,10 @@ const LightsOutPage = () => {
         <div className="lightsout">
             <LevelsBar title='Lights Out' lvlNum={3} currentLvl={lvlNum} />
             <div className='lo-content'>
-                <div className='lo-game'>
+                <div className={`lo-game lvl${lvlNum}`}>
                     {
-                        lvl1.map((nodeData) => {
-                            const gridSize = Math.sqrt(lvl1.length);
+                        lvl[lvlNum].map((nodeData) => {
+                            const gridSize = Math.sqrt(lvl[lvlNum].length);
                             return <div key={nodeData[0]}
                                 className={`lo-game-node-lvl${lvlNum} ${(nodeData[1] === 1) ? 'active' : ''}`}
                                 id={`${nodeData[0]}`}
@@ -116,6 +120,25 @@ const LightsOutPage = () => {
                         }}>Solution 2</p>
                         <p className='f24'>GitHub</p>
                     </div>
+                </div>
+            </div>
+            <div className='lo-btns noselect'>
+                <div className='lo-btn' onClick={() => {
+                    setReload(!reload);
+                }}>
+                    <img src={reloadIcon} alt="" />
+                </div>
+                <div className='lo-btn'>
+                    <p className='f24'>BACK TO SITE</p>
+                </div>
+                <div className='lo-btn' onClick={() => {
+                    if (lvlNum === 2) {
+                        setLvlNum(0);
+                    } else {
+                        setLvlNum(lvlNum + 1);
+                    }
+                }}>
+                    <p className='f24'>NEXT LEVEL</p>
                 </div>
             </div>
         </div>

@@ -24,11 +24,37 @@
 }
 
 .lb-bar::after {
+    transition: all .4s ease-in-out;
+}
+
+.lb-bar.bar-1::after {
     position: absolute;
     top: 0;
     left: 0;
     height: 6px;
     width: calc(100% / 3 * 1);
+    content: '';
+    background-color: var(--secBg);
+    border-radius: 5px;
+}
+
+.lb-bar.bar-2::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: calc(100% / 3 * 2);
+    content: '';
+    background-color: var(--secBg);
+    border-radius: 5px;
+}
+
+.lb-bar.bar-3::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: calc(100% / 3 * 3);
     content: '';
     background-color: var(--secBg);
     border-radius: 5px;

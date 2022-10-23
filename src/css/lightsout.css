@@ -3,7 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -21,7 +21,11 @@
     position: relative;
 }
 
-.lo-game-node-lvl1 {
+.lo-game.lvl2 {
+    gap: 10px
+}
+
+.lo-game-node-lvl0 {
     width: calc(33% - 16px);
     height: calc(33% - 16px);
     background-color: var(--terBg);
@@ -29,23 +33,25 @@
     cursor: pointer;
 }
 
+.lo-game-node-lvl1 {
+    width: calc(20% - 16px);
+    height: calc(20% - 16px);
+    background-color: var(--terBg);
+    border-radius: 11px;
+    cursor: pointer;
+}
+
 .lo-game-node-lvl2 {
-    width: calc(20% - 16px);
-    height: calc(20% - 16px);
+    width: calc(13.9% - 8px);
+    height: calc(13.9% - 8px);
     background-color: var(--terBg);
     border-radius: 11px;
     cursor: pointer;
 }
 
-.lo-game-node-lvl3 {
-    width: calc(20% - 16px);
-    height: calc(20% - 16px);
-    background-color: var(--terBg);
-    border-radius: 11px;
-    cursor: pointer;
-}
-
-.lo-game-node-lvl1.active {
+.lo-game-node-lvl0.active,
+.lo-game-node-lvl1.active,
+.lo-game-node-lvl2.active {
     background-color: var(--secBg);
 }
 
@@ -85,4 +91,37 @@
 
 .lo-description-links p:hover {
     color: var(--secBg);
+}
+
+.lo-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.lo-btn {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--terBg);
+    padding: 10px 20px 5px 20px;
+    border-radius: 5px;
+    box-shadow: 0 10px 0 0 rgba(0,0,0,.6);
+    cursor: pointer;
+}
+
+.lo-btn:active {
+    transform: translateY(10px);
+    box-shadow: inset 0 5px 0 0 rgba(0,0,0,.20);
+}
+
+
+.lo-btn p {
+    line-height: 150%;
+}
+.lo-btn img {
+    width: 20px;
+    height: 30px;
 }
