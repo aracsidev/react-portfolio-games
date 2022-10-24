@@ -7,17 +7,25 @@ import LightsOutSolutions from '../components/LightsOutSolutions';
 import { useState, useMemo } from 'react';
 import { useTransition } from 'react-spring';
 
-const LightsOutPage = () => {
+const LightsOutPage = (props) => {
+
+    document.title = props.title;
 
     const [solution, setSolution] = useState(0);
     const [lvlNum, setLvlNum] = useState(0);
     const [reload, setReload] = useState(false);
+    // Has to be declared to be able to transition between
+    // height 0 and 330, you can't use 100% in useTransition hook.
     const height = 330;
+    const numOfLevels = 3;
 
-    // This is fixed, I only wanted 3 levels with different sizes.
+    // Levels are fixed, I only wanted 3 of them with different sizes.
     // If you want to generate more levels just make sure the number
     // you pass is a square becouse the function and the grid generation
     // both use Math.sqrt().
+    // 
+    // useMemo is used to only call the generation function if the user
+    // presses the reload button.
     const lvl = [
         useMemo(() => generateLevel(9), [reload]),
         useMemo(() => generateLevel(25), [reload]),
@@ -81,7 +89,7 @@ const LightsOutPage = () => {
 
     return (
         <div className="lightsout">
-            <LevelsBar title='Lights Out' lvlNum={3} currentLvl={lvlNum} />
+            <LevelsBar title='Lights Out' lvlNum={numOfLevels} currentLvl={lvlNum} />
             <div className='lo-content'>
                 <div className={`lo-game lvl${lvlNum}`}>
                     {
@@ -125,6 +133,7 @@ const LightsOutPage = () => {
             <div className='lo-btns noselect'>
                 <div className='lo-btn' onClick={() => {
                     setReload(!reload);
+                    setSolution(0);
                 }}>
                     <img src={reloadIcon} alt="" />
                 </div>
@@ -132,6 +141,7 @@ const LightsOutPage = () => {
                     <p className='f24'>BACK TO SITE</p>
                 </div>
                 <div className='lo-btn' onClick={() => {
+                    setSolution(0);
                     if (lvlNum === 2) {
                         setLvlNum(0);
                     } else {

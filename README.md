@@ -9,7 +9,7 @@ Note that this development build is only to show my code.
 
 - Lights Out
 - Nonogram
-- TicTacToe
+- TicTacToe (Multiplayer)
 - Chess (Multiplayer)
 
 ## Scripts

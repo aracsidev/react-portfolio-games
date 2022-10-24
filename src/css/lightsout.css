@@ -21,6 +21,10 @@
     position: relative;
 }
 
+.lo-game.lvl1 {
+    gap: 15px
+}
+
 .lo-game.lvl2 {
     gap: 10px
 }
@@ -34,8 +38,8 @@
 }
 
 .lo-game-node-lvl1 {
-    width: calc(20% - 16px);
-    height: calc(20% - 16px);
+    width: calc(20% - 12px);
+    height: calc(20% - 12px);
     background-color: var(--terBg);
     border-radius: 11px;
     cursor: pointer;
